@@ -385,8 +385,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug",
-		"source" : "/home/elisabeth/Documents/PA/PA_repo/lib"
+		"build" : "/home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug",
+		"source" : "/home/elisabeth/Documents/PA/musical-chords/lib"
 	},
 	"version" : 
 	{

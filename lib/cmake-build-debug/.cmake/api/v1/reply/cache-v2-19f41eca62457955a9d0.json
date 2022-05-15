@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug"
+			"value" : "/home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/elisabeth/Documents/PA/PA_repo/lib"
+			"value" : "/home/elisabeth/Documents/PA/musical-chords/lib"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -995,7 +995,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug"
+			"value" : "/home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug"
 		},
 		{
 			"name" : "lib_IS_TOP_LEVEL",
@@ -1019,7 +1019,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/elisabeth/Documents/PA/PA_repo/lib"
+			"value" : "/home/elisabeth/Documents/PA/musical-chords/lib"
 		}
 	],
 	"kind" : "cache",

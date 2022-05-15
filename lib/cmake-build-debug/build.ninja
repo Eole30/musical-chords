@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug/
+cmake_ninja_workdir = /home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug/
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target lib
 
@@ -49,7 +49,7 @@ cmake_ninja_workdir = /home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug
 
 build cmake_object_order_depends_target_lib: phony || CMakeFiles/lib.dir
 
-build CMakeFiles/lib.dir/library.c.o: C_COMPILER__lib_Debug /home/elisabeth/Documents/PA/PA_repo/lib/library.c || cmake_object_order_depends_target_lib
+build CMakeFiles/lib.dir/library.c.o: C_COMPILER__lib_Debug /home/elisabeth/Documents/PA/musical-chords/lib/library.c || cmake_object_order_depends_target_lib
   DEP_FILE = CMakeFiles/lib.dir/library.c.o.d
   FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles/lib.dir
@@ -79,7 +79,7 @@ build liblib.a: C_STATIC_LIBRARY_LINKER__lib_Debug CMakeFiles/lib.dir/library.c.
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug && /home/elisabeth/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/cmake/linux/bin/ccmake -S/home/elisabeth/Documents/PA/PA_repo/lib -B/home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug
+  COMMAND = cd /home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug && /home/elisabeth/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/cmake/linux/bin/ccmake -S/home/elisabeth/Documents/PA/musical-chords/lib -B/home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -91,7 +91,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug && /home/elisabeth/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/elisabeth/Documents/PA/PA_repo/lib -B/home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug
+  COMMAND = cd /home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug && /home/elisabeth/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/221.5080.224/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/elisabeth/Documents/PA/musical-chords/lib -B/home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -109,7 +109,7 @@ build lib: phony liblib.a
 # =============================================================================
 
 #############################################
-# Folder: /home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug
+# Folder: /home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug
 
 build all: phony liblib.a
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/elisabeth/Documents/PA/PA_repo/lib
+# Install script for directory: /home/elisabeth/Documents/PA/musical-chords/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/elisabeth/Documents/PA/PA_repo/lib/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/elisabeth/Documents/PA/musical-chords/lib/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
