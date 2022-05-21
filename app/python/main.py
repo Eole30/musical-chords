@@ -9,6 +9,7 @@ if(sys.platform == "linux"):
 if(sys.platform == "win32"):
     _lib = ct.cdll.LoadLibrary(lib_path_windows)
 
+print(_lib.get_random())
 ##testing if the lib works
 print(_lib)
 _lib.hello()
