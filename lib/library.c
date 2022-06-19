@@ -3,18 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <gsl/gsl_sf_bessel.h>
+//#include <gsl/gsl_sf_bessel.h>
 
 /* Elisabeth
  * compiling in linux : gcc -shared -O2 -o library.so -fPIC library.c
  */
 
-void test_gsl () {
+
+/*void test_gsl () {
     double x = 5.0;
     double y = gsl_sf_bessel_J0(x);
     printf ("J0(%g) = %.18e\n", x, y);
 }
-
+*/
 void hello() {
     printf("Hello, World!\n");
 }
