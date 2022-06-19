@@ -5,6 +5,7 @@ import sys
 lib_path_linux = "../../lib/library.so"
 lib_path_windows = "../../lib/library.dll"
 
+#loading lib according to os used
 if(sys.platform == "linux"):
     _lib = ct.cdll.LoadLibrary(lib_path_linux)
 if(sys.platform == "win32"):
