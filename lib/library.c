@@ -9,13 +9,12 @@
  * compiling in linux : gcc -shared -O2 -o library.so -fPIC library.c
  */
 
-
 /*void test_gsl () {
     double x = 5.0;
     double y = gsl_sf_bessel_J0(x);
     printf ("J0(%g) = %.18e\n", x, y);
-}
-*/
+}*/
+
 void hello() {
     printf("Hello, World!\n");
 }
@@ -26,20 +25,33 @@ int returns_int(){
 double returns_double(){
     return 42.42;
 }
-/*python for reference
- * def predict_linear_model_classification(model_weights: np.ndarray, inputs: np.ndarray):
-    total_sum = 1 * model_weights[0] + np.sum(model_weights[1:] * inputs)
-    return 1 if total_sum >= 0 else -1
- */
+
+// pas fini, je pige pas ce qui correspond à quoi dans struct MLP
+MLP* init_MLP(int L, int* d){
+    MLP* model = malloc(sizeof(MLP*));
+    model->L = L;
+    model->d = malloc(sizeof(int) * L);
+    model->d = d;
+    model->X = malloc(sizeof(double*)* L);
+    model->deltas = malloc(sizeof(double*)* L);
+    for (int i = 0; i < L; ++i) {
+        model->X[i] = malloc(sizeof(double) * d[i]);
+    }
+    return model;
+}
+
+void destroy_model(MLP* model){
+
+}
 
 /*
- * without a matrix lib --> gnu gsl or eigen
+ * without a matrix lib --> gnu gsl if I can get it to work
  */
 short predict_linear_classification(double * weights, double * inputs, int size){
     double total_sum;
     total_sum = *weights;
     for (int i = 0; i < size; ++i) {
-        total_sum += *(weights + i + 1) * *(inputs + i);
+        total_sum += *(weights + i + 1) * *(inputs + i); //probablement un dépassement de taille
     }
     return (total_sum >= 0) ? 1 : -1;
 }
@@ -69,6 +81,7 @@ double* train_linear_classification(double * weights, double * inputs, double * 
             *(weights + j) += 0.01 * diff * *(inputs + j);
         }
     }
+    return weights;
 }
 
 
