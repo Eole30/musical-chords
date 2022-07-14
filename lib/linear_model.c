@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-double get_random() {
+double get_random_once() {
     srand(time(NULL)); //seed
     return ((double) rand() / RAND_MAX) * 2.0 - 1.0; //between -1.0 and 1.0
 }
@@ -15,8 +15,9 @@ double get_random() {
 double* create_linear_model(int input_dim) {
     double *weights;
     weights = malloc((input_dim + 1) * sizeof(double));
+    srand(time(NULL)); //seed
     for (int i = 0; i < (input_dim + 1); i++) {
-        weights[i] = get_random();
+        weights[i] = ((double) rand() / RAND_MAX) * 2.0 - 1.0;
     }
     return weights;
 }
