@@ -1,10 +1,6 @@
-#pragma once
+#ifndef LIB_LIBRARY_H
+#define LIB_LIBRARY_H
 
-#ifdef LIB_LIBRARY_EXPORT
-#define LIB_LIBRARY_H __declspec(dllexport)
-#else
-#define LIB_LIBRARY_H __declspec(dllimport)
-#endif
 
 
 extern LIB_LIBRARY_H void hello();
