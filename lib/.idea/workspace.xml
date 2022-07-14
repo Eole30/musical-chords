@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d8449b2-2c5c-40e6-b6cd-d51bd40876bb" name="Changes" comment="linear classification training, compiles ok but unfinished">
+      <change beforePath="$PROJECT_DIR$/library.so" beforeDir="false" afterPath="$PROJECT_DIR$/library.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear_model.c" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear_model.h" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/home/elisabeth/Downloads/Exemple_Interoperoperabilite_Python___Rust___C/2022_3A_IABD2_MachineLearningDLLForPythonInCpp",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
