@@ -30,13 +30,13 @@ short predict_linear_model_regression(double * model, double * imputs){
     return sum_rslt;
 }
 
-short predict_linear_classification(double *weights, double *inputs, int size) {
-    double total_sum;
-    total_sum = *weights;
-    for (int i = 0; i < size; ++i) {
-        total_sum += *(weights + i + 1) * *(inputs + i); //probablement un dépassement de taille
-    }
-    return (total_sum >= 0) ? 1 : -1;
+
+short predict_linear_classification(double * model, double * imputs) {
+    double pred = predict_linear_model_regression(double * model, double * imputs);
+    //double rslt;
+    //if(pred >= 0){return 1.0;}else{return -1.0;}
+    return (pred >= 0) ? 1.0 : -1.0;
+
 }
 
 double *train_linear_classification(double *weights, double *inputs, double *outputs, int size, int train_iterations) {
