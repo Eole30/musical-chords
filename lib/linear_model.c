@@ -7,7 +7,19 @@
 #include <stdlib.h>
 #include <time.h>
 
+double get_random() {
+    srand(time(NULL)); //seed
+    return ((double)rand() / RAND_MAX) * 2.0 - 1.0; //between -1.0 and 1.0
+}
 
+double* create_linear_model(int imput_dim){
+    double * weights = NULL;
+    weights = malloc((imput_dim+1) * sizeof(double ));
+    for(int i=0, i<imput_dim+1,i++){
+        weights[i]= get_random();
+    }
+    return weights
+}
 
 short predict_linear_classification(double * weights, double * inputs, int size){
     double total_sum;
@@ -33,10 +45,5 @@ double* train_linear_classification(double * weights, double * inputs, double * 
         }
     }
     return weights;
-}
-
-double get_random() {
-    srand(time(NULL)); //seed
-    return ((double)rand() / RAND_MAX) * 2.0 - 1.0; //between -1.0 and 1.0
 }
 
