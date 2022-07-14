@@ -22,6 +22,13 @@ double* create_linear_model(int input_dim) {
     return weights;
 }
 
+short predict_linear_model_regression(double * model, double * imputs){
+    double sum_rslt = model[0];
+    for (int i = 1; i < sizeof(model); ++i) {
+        sum_rslt += model[i] * imputs[i-1];
+    }
+    return sum_rslt;
+}
 
 short predict_linear_classification(double *weights, double *inputs, int size) {
     double total_sum;
