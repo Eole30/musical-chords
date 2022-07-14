@@ -24,7 +24,7 @@ double *create_linear_model(int input_dim) {
 
 
 double *train_rosenblatt_linear_model(double *model, double *dataset_inputs, double *dataset_expected_outputs,
-                                      int iterations_count = 10, float alpha = 0.01) {
+                                      int iterations_count, float alpha) {
     int input_size = sizeof(model) - 1;
     int sample_count = sizeof(dataset_inputs) / input_size;
 
@@ -37,8 +37,15 @@ double *train_rosenblatt_linear_model(double *model, double *dataset_inputs, dou
             Xk[temp] = dataset_inputs[j];
             temp++;
         }
-        double Yk = dataset_expected_outputs[k * 1];
+        double yk = dataset_expected_outputs[k * 1];
+        double gXk = predict_linear_classification(model, Xk);
+        model[0] += alpha * (yk - gXk) * 1.0;
+        for (int j = 1; j < sizeof(model); ++j) {
+            model[j] += alpha * (yk - gXk) * Xk[j -1];
+        }
     }
+
+    return model;
 }
 
 
@@ -57,20 +64,4 @@ short predict_linear_classification(double *model, double *imputs) {
     return (pred >= 0) ? 1.0 : -1.0;
 }
 
-//double *train_linear_classification(double *weights, double *inputs, double *outputs, int size, int train_iterations) {
-//    int k;
-//    double g_x_k, y_k, diff;
-//    for (int i = 0; i < train_iterations; ++i) {
-//        srand(time(NULL)); //seed
-//        k = rand() % size; //get random index between 0 and len(X)
-//        g_x_k = predict_linear_classification(weights, inputs, size);
-//        y_k = *(outputs + k);
-//        diff = y_k - g_x_k;
-//        *weights += 0.01 * diff;
-//        for (int j = 1; j < size; ++j) {
-//            *(weights + j) += 0.01 * diff * *(inputs + j);
-//        }
-//    }
-//    return weights;
-//}
 
