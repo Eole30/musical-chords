@@ -22,7 +22,7 @@ double* create_linear_model(int input_dim) {
     return weights;
 }
 
-short predict_linear_model_regression(double * model, double * imputs){
+double predict_linear_model_regression(double * model, double * imputs){
     double sum_rslt = model[0];
     for (int i = 1; i < sizeof(model); ++i) {
         sum_rslt += model[i] * imputs[i-1];
@@ -30,29 +30,27 @@ short predict_linear_model_regression(double * model, double * imputs){
     return sum_rslt;
 }
 
-
 short predict_linear_classification(double * model, double * imputs) {
-    double pred = predict_linear_model_regression(double * model, double * imputs);
+    double pred = predict_linear_model_regression(model, imputs);
     //double rslt;
     //if(pred >= 0){return 1.0;}else{return -1.0;}
     return (pred >= 0) ? 1.0 : -1.0;
-
 }
 
-double *train_linear_classification(double *weights, double *inputs, double *outputs, int size, int train_iterations) {
-    int k;
-    double g_x_k, y_k, diff;
-    for (int i = 0; i < train_iterations; ++i) {
-        srand(time(NULL)); //seed
-        k = rand() % size; //get random index between 0 and len(X)
-        g_x_k = predict_linear_classification(weights, inputs, size);
-        y_k = *(outputs + k);
-        diff = y_k - g_x_k;
-        *weights += 0.01 * diff;
-        for (int j = 1; j < size; ++j) {
-            *(weights + j) += 0.01 * diff * *(inputs + j);
-        }
-    }
-    return weights;
-}
+//double *train_linear_classification(double *weights, double *inputs, double *outputs, int size, int train_iterations) {
+//    int k;
+//    double g_x_k, y_k, diff;
+//    for (int i = 0; i < train_iterations; ++i) {
+//        srand(time(NULL)); //seed
+//        k = rand() % size; //get random index between 0 and len(X)
+//        g_x_k = predict_linear_classification(weights, inputs, size);
+//        y_k = *(outputs + k);
+//        diff = y_k - g_x_k;
+//        *weights += 0.01 * diff;
+//        for (int j = 1; j < size; ++j) {
+//            *(weights + j) += 0.01 * diff * *(inputs + j);
+//        }
+//    }
+//    return weights;
+//}
 
