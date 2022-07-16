@@ -6,7 +6,9 @@
 //#include <gsl/gsl_sf_bessel.h>
 
 /* Elisabeth
- * compiling in linux : gcc -shared -O2 -o library.so -fPIC library.c
+ * compiling c in linux : gcc -shared -O2 -o library.so -fPIC library.c
+ * c++ compiling : g++ -std=c++14 -c -o library.o library.cpp
+ * c++ linking : gcc -shared -o library.so library.o
  */
 
 /*void test_gsl () {

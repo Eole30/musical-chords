@@ -9,15 +9,15 @@
 // pas fini, je pige pas ce qui correspond à quoi dans struct MLP
 
 MLP* init_MLP(int L, int* d){
-    MLP* model = malloc(sizeof(MLP*));
-    model->L = L;
-    model->d = malloc(sizeof(int) * L);
-    model->d = d;
-    model->X = malloc(sizeof(double*)* L);
-    model->deltas = malloc(sizeof(double*)* L);
-    for (int i = 0; i < L; ++i) {
-        model->X[i] = malloc(sizeof(double) * d[i]);
-    }
+//    MLP* model = n;
+//    model->L = L;
+//    model->d = malloc(sizeof(int) * L);
+//    model->d = d;
+//    model->X = malloc(sizeof(double*)* L);
+//    model->deltas = malloc(sizeof(double*)* L);
+//    for (int i = 0; i < L; ++i) {
+//        model->X[i] = malloc(sizeof(double) * d[i]);
+//    }
     return model;
 }
 

@@ -1,0 +1,89 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"CMakeReloadState\">\n    <option name=\"reloaded\" value=\"true\" />\n  </component>\n  <component name=\"CMakeRunConfigurationManager\">\n    <generated />\n  </component>\n  <component name=\"CMakeSettings\">\n    <configurations />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7d8449b2-2c5c-40e6-b6cd-d51bd40876bb\" name=\"Changes\" comment=\"linear classification training, compiles ok but unfinished\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/library.so\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/library.so\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/linear_model.c\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/linear_model.c\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/linear_model.h\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/linear_model.h\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/[Notebook] Cas de Tests pour le rendu 2-checkpoint.ipynb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/[Notebook] Cas de Tests pour le rendu 2-checkpoint.ipynb\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2C1ITuDY1bXSTyFZTaG3wB15eCx\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"cf.first.check.clang-format\": \"false\",\n    \"cidr.known.project.marker\": \"true\",\n    \"last_opened_file_path\": \"/home/elisabeth/Downloads/Exemple_Interoperoperabilite_Python___Rust___C/2022_3A_IABD2_MachineLearningDLLForPythonInCpp\",\n    \"nodejs_package_manager_path\": \"npm\"\n  }\n}]]></component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"CLionExternalRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\">\n      <method v=\"2\">\n        <option name=\"CLION.EXTERNAL.BUILD\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7d8449b2-2c5c-40e6-b6cd-d51bd40876bb\" name=\"Changes\" comment=\"linear classification training, compiles ok but unfinished\" />\n      <created>1657963676227</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1657963676227</updated>\n      <workItem from=\"1657963678693\" duration=\"1561000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -12,11 +12,10 @@
+   <component name="ChangeListManager">
+     <list default="true" id="7d8449b2-2c5c-40e6-b6cd-d51bd40876bb" name="Changes" comment="linear classification training, compiles ok but unfinished">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/library.so" beforeDir="false" afterPath="$PROJECT_DIR$/library.so" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/linear_model.c" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.c" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/linear_model.h" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.h" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/[Notebook] Cas de Tests pour le rendu 2-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/[Notebook] Cas de Tests pour le rendu 2-checkpoint.ipynb" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/library.c" beforeDir="false" afterPath="$PROJECT_DIR$/library.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/linear_model.c" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/mlp.c" beforeDir="false" afterPath="$PROJECT_DIR$/mlp.cpp" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -38,18 +37,18 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.cidr.known.project.marker": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "cf.first.check.clang-format": "false",
+-    "cidr.known.project.marker": "true",
+-    "last_opened_file_path": "/home/elisabeth/Downloads/Exemple_Interoperoperabilite_Python___Rust___C/2022_3A_IABD2_MachineLearningDLLForPythonInCpp",
+-    "nodejs_package_manager_path": "npm"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
++    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/home/elisabeth/Downloads/Exemple_Interoperoperabilite_Python___Rust___C/2022_3A_IABD2_MachineLearningDLLForPythonInCpp&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager">
+     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+       <method v="2">
+@@ -72,4 +71,15 @@
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
+Index: CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>cmake_minimum_required(VERSION 3.17.5)\nproject(lib C)\n\nset(CMAKE_C_STANDARD 99)\ninclude_directories(\"/usr/local/include/gsl\")\nadd_library(library SHARED library.h library.c)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	
++++ b/CMakeLists.txt	
+@@ -3,4 +3,4 @@
+ 
+ set(CMAKE_C_STANDARD 99)
+ include_directories("/usr/local/include/gsl")
+-add_library(library SHARED library.h library.c)
++add_library(library SHARED library.h library.cpp)

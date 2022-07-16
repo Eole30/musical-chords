@@ -15,7 +15,7 @@ double get_random_once() {
 
 double *create_linear_model(int input_dim) {
     double *weights;
-    weights = malloc((input_dim + 1) * sizeof(double));
+    weights = new double[input_dim + 1];
     srand(time(NULL)); //seed
     for (int i = 0; i < (input_dim + 1); i++) {
         weights[i] = ((double) rand() / RAND_MAX) * 2.0 - 1.0;
@@ -27,9 +27,9 @@ double* train_regression_model(double *model, double *dataset_inputs, double *da
     int input_size = sizeof(model) - 1;
     int sample_count = sizeof(dataset_inputs) / input_size;
 
-     x = dataset_inputs;
+    //x = dataset_inputs;
     double* y = dataset_expected_outputs;
-
+    return model;
 }
 
 double *train_rosenblatt_linear_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs,
