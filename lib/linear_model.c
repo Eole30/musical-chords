@@ -23,6 +23,14 @@ double *create_linear_model(int input_dim) {
     return weights;
 }
 
+double* train_regression_model(double *model, double *dataset_inputs, double *dataset_expected_outputs){
+    int input_size = sizeof(model) - 1;
+    int sample_count = sizeof(dataset_inputs) / input_size;
+
+     x = dataset_inputs;
+    double* y = dataset_expected_outputs;
+
+}
 
 double *train_rosenblatt_linear_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs,
                                       int iterations_count, float alpha) {

@@ -10,5 +10,6 @@ extern LIB_LINEAR_MODEL_H short predict_linear_classification(double *, int, dou
 extern LIB_LINEAR_MODEL_H double predict_linear_model_regression(double *, int, double *);
 extern LIB_LINEAR_MODEL_H double* train_linear_classification(double *, double *, double*, int , int );
 extern LIB_LINEAR_MODEL_H double get_random_once();
+extern LIB_LINEAR_MODEL_H double* train_regression_model(double*,double *, double *);
 extern LIB_LINEAR_MODEL_H double* train_rosenblatt_linear_model(double *, int, double *, int, double *, int , float);
 #endif //LIB_LINEAR_MODEL_H
