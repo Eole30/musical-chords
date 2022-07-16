@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include <Eigen/Dense.h>
+#include <Eigen>
 
 double get_random_once() {
     srand(time(NULL)); //seed
@@ -25,10 +25,19 @@ double *create_linear_model(int input_dim) {
 
 double* train_regression_model(double *model, double *dataset_inputs, double *dataset_expected_outputs){
     int input_size = sizeof(model) - 1;
-    int sample_count = sizeof(dataset_inputs) / input_size;
+    int ouput_size = sizeof(dataset_expected_outputs);
+    int samples_count = sizeof(dataset_inputs) / input_size;
 
-    //x = dataset_inputs;
-    double* y = dataset_expected_outputs;
+    Eigen::MatrixXf X(input_size, 1);
+    Eigen::Vector3f vectorX(dataset_inputs);
+    X << vectorX;
+
+    Eigen::MatrixXf Y(ouput_size, 1);
+    Eigen::Vector3f vectorY(dataset_expected_outputs);
+    Y << vectorY;
+
+    Eigen::MatrixXf W = (((X.transpose() * X).inverse()) * X.transpose()) * Y;
+    model = W.data();
     return model;
 }
 
