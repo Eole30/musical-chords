@@ -42,20 +42,23 @@ double *train_rosenblatt_linear_model(double *model, int model_size, double *dat
                                       int iterations_count, float alpha) {
     int input_size = model_size - 1;
     int sample_count = dataset_size / input_size;
+    double *Xk;
+    double yk, gXk;
+    int temp;
 
     srand(time(NULL));
     for (int i = 0; i < iterations_count; i++) {
         int k = rand() % sample_count;
-        double Xk[input_size];
-        int temp = 0;
+        Xk = new double [input_size];
+        temp = 0;
         for (int j = k * input_size; j < (k + 1) * input_size; ++j) {
             Xk[temp] = dataset_inputs[j];
             temp++;
         }
-        double yk = dataset_expected_outputs[k * 1];
-        double gXk = predict_linear_classification(model, model_size, Xk);
+        yk = dataset_expected_outputs[k];
+        gXk = predict_linear_classification(model, model_size, Xk);
         model[0] += alpha * (yk - gXk) * 1.0;
-        for (int j = 1; j < sizeof(model); ++j) {
+        for (int j = 1; j < model_size; ++j) {
             model[j] += alpha * (yk - gXk) * Xk[j -1];
         }
     }
