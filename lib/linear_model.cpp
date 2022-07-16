@@ -8,11 +8,17 @@
 #include <time.h>
 #include <Eigen>
 
+/* Elisabeth
+ * g++ -fPIC linear_model.cpp -shared -o library.so
+ */
+
+extern "C"
 double get_random_once() {
-    srand(time(NULL)); //seed
+    srand(time(NULL)); //seed, call only once
     return ((double) rand() / RAND_MAX) * 2.0 - 1.0; //between -1.0 and 1.0
 }
 
+extern "C"
 double *create_linear_model(int input_dim) {
     double *weights;
     weights = new double[input_dim + 1];
@@ -22,7 +28,7 @@ double *create_linear_model(int input_dim) {
     }
     return weights;
 }
-
+extern "C"
 double* train_regression_model(double *model, double *dataset_inputs, double *dataset_expected_outputs){
     int input_size = sizeof(model) - 1;
     int ouput_size = sizeof(dataset_expected_outputs);
@@ -40,7 +46,7 @@ double* train_regression_model(double *model, double *dataset_inputs, double *da
     model = W.data();
     return model;
 }
-
+extern "C"
 double *train_rosenblatt_linear_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs,
                                       int iterations_count, float alpha) {
     int input_size = model_size - 1;
@@ -66,7 +72,7 @@ double *train_rosenblatt_linear_model(double *model, int model_size, double *dat
     return model;
 }
 
-
+extern "C"
 double predict_linear_model_regression(double *model, int model_size, double *inputs) {
     double sum_rslt = model[0];
     for (int i = 1; i < model_size; ++i) {
@@ -74,7 +80,7 @@ double predict_linear_model_regression(double *model, int model_size, double *in
     }
     return sum_rslt;
 }
-
+extern "C"
 short predict_linear_classification(double *model, int model_size, double *inputs) {
     double pred = predict_linear_model_regression(model, model_size, inputs);
     //double rslt;
