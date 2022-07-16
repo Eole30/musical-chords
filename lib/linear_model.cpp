@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include <Eigen/Dense.h>
+#include <Eigen/Eigen.h>
 
 /* Elisabeth
  * g++ -fPIC linear_model.cpp -shared -o library.so
@@ -28,15 +28,26 @@ double *create_linear_model(int input_dim) {
     }
     return weights;
 }
-extern "C"
-double* train_regression_model(double *model, double *dataset_inputs, double *dataset_expected_outputs){
-    int input_size = sizeof(model) - 1;
-    int sample_count = sizeof(dataset_inputs) / input_size;
 
-    //x = dataset_inputs;
-    double* y = dataset_expected_outputs;
+extern "C"
+double* train_regression_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs, int expected_size){
+    int input_size = model_size - 1;
+    int output_size = expected_size;
+    int samples_count = dataset_size / input_size;
+
+    Eigen::MatrixXf X(input_size, 1);
+    Eigen::Vector3f vectorX(dataset_inputs);
+    X << vectorX;
+
+    Eigen::MatrixXf Y(output_size, 1);
+    Eigen::Vector3f vectorY(dataset_expected_outputs);
+    Y << vectorY;
+
+    Eigen::MatrixXf W = (((X.transpose() * X).inverse()) * X.transpose()) * Y;
+    model = W.data();
     return model;
 }
+
 extern "C"
 double *train_rosenblatt_linear_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs,
                                       int iterations_count, float alpha) {
