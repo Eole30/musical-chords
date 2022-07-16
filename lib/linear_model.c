@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+//#include <Eigen/Dense.h>
 
 double get_random_once() {
     srand(time(NULL)); //seed
@@ -23,10 +24,10 @@ double *create_linear_model(int input_dim) {
 }
 
 
-double *train_rosenblatt_linear_model(double *model, double *dataset_inputs, double *dataset_expected_outputs,
+double *train_rosenblatt_linear_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs,
                                       int iterations_count, float alpha) {
-    int input_size = sizeof(model) - 1;
-    int sample_count = sizeof(dataset_inputs) / input_size;
+    int input_size = model_size - 1;
+    int sample_count = dataset_size / input_size;
 
     srand(time(NULL));
     for (int i = 0; i < iterations_count; i++) {
@@ -38,7 +39,7 @@ double *train_rosenblatt_linear_model(double *model, double *dataset_inputs, dou
             temp++;
         }
         double yk = dataset_expected_outputs[k * 1];
-        double gXk = predict_linear_classification(model, Xk);
+        double gXk = predict_linear_classification(model, model_size, Xk);
         model[0] += alpha * (yk - gXk) * 1.0;
         for (int j = 1; j < sizeof(model); ++j) {
             model[j] += alpha * (yk - gXk) * Xk[j -1];
@@ -49,16 +50,16 @@ double *train_rosenblatt_linear_model(double *model, double *dataset_inputs, dou
 }
 
 
-double predict_linear_model_regression(double *model, double *imputs) {
+double predict_linear_model_regression(double *model, int model_size, double *inputs) {
     double sum_rslt = model[0];
-    for (int i = 1; i < sizeof(model); ++i) {
-        sum_rslt += model[i] * imputs[i - 1];
+    for (int i = 1; i < model_size; ++i) {
+        sum_rslt += model[i] * inputs[i - 1];
     }
     return sum_rslt;
 }
 
-short predict_linear_classification(double *model, double *imputs) {
-    double pred = predict_linear_model_regression(model, imputs);
+short predict_linear_classification(double *model, int model_size, double *inputs) {
+    double pred = predict_linear_model_regression(model, model_size, inputs);
     //double rslt;
     //if(pred >= 0){return 1.0;}else{return -1.0;}
     return (pred >= 0) ? 1.0 : -1.0;
