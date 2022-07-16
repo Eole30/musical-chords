@@ -3,8 +3,8 @@ import ctypes as ct
 import sys
 import numpy as np
 
-lib_path_linux = "../../lib/library.so"
-lib_path_windows = "../../lib/library.dll"
+lib_path_linux = "../lib/library.so"
+lib_path_windows = "../lib/library.dll"
 
 #loading lib according to os used
 if(sys.platform == "linux"):
