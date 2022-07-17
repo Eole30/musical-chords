@@ -4,21 +4,25 @@
 
 #ifndef LIB_MLP_H
 #define LIB_MLP_H
-
-typedef struct MLP {
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <Eigen/Eigen>
+#include <vector>
+struct MLP {
     int* d;
     int d_size;
-    vector<vector<vector<float>>> W;
-    vector<vector<float>> X;
-    vector<vector<float>> deltas;
+    std::vector<std::vector<std::vector<float>>> W;
+    std::vector<std::vector<float>> X;
+    std::vector<std::vector<float>> deltas;
 };
-
+float randomDistribution(float, float);
 MLP* init_MLP(int, int*);
-void forward_pass(vector<float>, bool, MLP*);
-void train_stochastic_gradient_backpropagation(vector<float>, vector<float>, bool, float, int);
-void train_classification_stochastic_backprop_mlp_model (MLP*, vector<float>, vector<float>, float, int);
-void train_regression_stochastic_backprop_mlp_model (MLP*, vector<float>, vector<float>, float , int);
-float predict_mlp_model_classification(MLP*, vector<float>);
-float predict_mlp_model_regression(MLP*, vector<float>)
+void forward_pass(std::vector<float>, bool, MLP*);
+void train_stochastic_gradient_backpropagation(std::vector<float>, std::vector<float>, bool, float, int);
+void train_classification_stochastic_backprop_mlp_model (MLP*, std::vector<float>, std::vector<float>, float, int);
+void train_regression_stochastic_backprop_mlp_model (MLP*, std::vector<float>, std::vector<float>, float , int);
+float predict_mlp_model_classification(MLP*, std::vector<float>);
+float predict_mlp_model_regression(MLP*, std::vector<float>);
 void destroy_model(MLP*);
 #endif //LIB_MLP_H
