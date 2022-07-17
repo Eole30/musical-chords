@@ -33,7 +33,6 @@ extern "C"
 double* train_regression_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs, int expected_size){
     int input_size = model_size - 1;
     int output_size = expected_size;
-    int samples_count = dataset_size / input_size;
 
     Eigen::MatrixXf X(input_size, 1);
     Eigen::Vector3f vectorX(dataset_inputs);
