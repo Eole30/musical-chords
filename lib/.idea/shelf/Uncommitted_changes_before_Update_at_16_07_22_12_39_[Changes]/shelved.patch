@@ -1,0 +1,9 @@
+diff --git a/library.c b/library.cpp
+rename from library.c
+rename to library.cpp
+diff --git a/linear_model.c b/linear_model.cpp
+rename from linear_model.c
+rename to linear_model.cpp
+diff --git a/mlp.c b/mlp.cpp
+rename from mlp.c
+rename to mlp.cpp
