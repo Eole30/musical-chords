@@ -14,6 +14,30 @@
 using namespace std;
 using namespace Eigen;
 
+
+class MLP{
+public:
+    void forward_pass(vector<float> sample_inputs, bool is_classification, MLP *model) {
+
+        for (auto j = 1; j < model->d[0] + 1; ++j) {
+            model->X[0][j] = sample_inputs[j - 1];
+
+            for (auto l = 0; l <= model->d_size; l++) {
+                for (auto j = 0; j < model->d[l] + 1; ++j) {
+                    float sum_result = 0.0;
+                    for (auto i = 0; i < model->d[l - 1] + 1; i++) {
+                        sum_result += model->W[l][i][j] * model->X[l - 1][i];
+                    }
+                    model->X[l][j] = sum_result;
+                    if (l < model->d_size - 1 || l < is_classification) {
+                        model->X[l][j] = tanh(model->X[l][j]);
+                    }
+                }
+            }
+        }
+    }
+}
+
 MLP *init_MLP(int nlp[], int d_size) {
     int *d = nlp;
     vector<float> W1;
@@ -61,30 +85,19 @@ float randomDistribution(float start, float end) {
     std::uniform_real_distribution<> dis(start, end);
     return dis(gen);
 }
-
-void forward_pass(vector<float> sample_inputs, bool is_classification, MLP *model) {
-
-    for (auto j = 1; j < model->d[0] + 1; ++j) {
-        model->X[0][j] = sample_inputs[j - 1];
-
-        for (auto l = 0; l <= model->d_size; l++) {
-            for (auto j = 0; j < model->d[l] + 1; ++j) {
-                float sum_result = 0.0;
-                for (auto i = 0; i < model->d[l - 1] + 1; i++) {
-                    sum_result += model->W[l][i][j] * model->X[l - 1][i];
-                }
-                model->X[l][j] = sum_result;
-                if (l < model->d_size - 1 || l < is_classification) {
-                    model->X[l][j] = tanh(model->X[l][j]);
-                }
-            }
-        }
-    }
+/*
+void train_regression_stochastic_backprop_mlp_model (MLP* model, vector<float>flattened_dataset_inputs, vector<float>flattened_expected_outputs, float alpha = 0.01, int iterations_count = 1000){
+    model->train_stochastic_gradient_backpropagation(flattened_dataset_inputs, flattened_expected_outputs, false, alpha, iterations_count);
+}
+*/
+float predict_mlp_model_classification(mlp* MLP, vector<float>sample_inputs){
+    MLP->forward_pass(sample_inputs, true);
+    return MLP->X[MLP->dsize-1][1];
 }
 
-float predict_mlp_model_regression(MLP *model, vector<float> sample_inputs) {
-    forward_pass(sample_inputs, false, model);
-    return model->X[model->d_size - 1][1];
+float predict_mlp_model_regression(mlp* MLP, vector<float>sample_inputs){
+    MLP->forward_pass(sample_inputs, false);
+    return MLP->X[MLP->dsize-1][1];
 }
 
 void destroy_model(MLP *model) {
