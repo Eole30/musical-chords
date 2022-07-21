@@ -9,13 +9,6 @@
 #include <time.h>
 #include <Eigen/Eigen>
 #include <vector>
-struct MLP {
-    int* d;
-    int d_size;
-    std::vector<std::vector<std::vector<float>>> W;
-    std::vector<std::vector<float>> X;
-    std::vector<std::vector<float>> deltas;
-};
 float randomDistribution(float, float);
 MLP* init_MLP(int, int*);
 void forward_pass(std::vector<float>, bool, MLP*);

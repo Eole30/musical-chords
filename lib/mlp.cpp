@@ -17,6 +17,20 @@ using namespace Eigen;
 
 class MLP{
 public:
+    int* d;
+    int d_size;
+    vector<vector<vector<float>>> W;
+    vector<vector<float>> X;
+    vector<vector<float>> deltas;
+public:
+    MLP(int* a,int a_size;vector<vector<vector<float>>> B,vector<vector<float>> C,vector<vector<float>> alphas){
+        d = a;
+        d_size=a_size;
+        W = B;
+        X = C;
+        deltats = alphas;
+    }
+
     void forward_pass(vector<float> sample_inputs, bool is_classification, MLP *model) {
 
         for (auto j = 1; j < model->d[0] + 1; ++j) {
@@ -36,14 +50,58 @@ public:
             }
         }
     }
+    /*
+    void train_stochastic_gradient_backpropagation(vector<float>flattened_dataset_inputs, vector<float>flattened_expected_outputs, bool is_classification,float alpha = 0.01,int iterations_count = 1000){
+        vector<vector<vector<float>>> W;
+        vector<vector<float>> X;
+        vector<vector<float>> deltas;
+
+        int L = d.size()-1;
+        int input_dim = d[0];
+        int output_dim = d[L];
+        int samples_count = flattened_dataset_inputs.size() / input_dim;
+
+        for(it = 0; it < iterations_count;it ++){
+            k = (int) (randomDistribution(0, samples_count - 1));
+            vector<float> sample_inputs = reinterpret_cast<vector<float, allocator<float>> &&>(flattened_dataset_inputs[k *input_dim, (k + 1) * input_dim]);
+            vector<float> sample_expected_outputs = reinterpret_cast<vector<float, allocator<float>> &&>(flattened_expected_outputs[
+                    k * output_dim, (k + 1) * output_dim]);
+
+            forward_pass(sample_inputs, is_classification);
+
+            for (j = 1; d[L]+1 ; j++){
+                deltas[L][j] = X[L][j] - sample_expected_outputs[j-1];
+                if(is_classification){
+                    deltas[L][j] = (1 - X[L][j]* X[L][j]) * deltas[L][j];
+                }
+            }
+            for (l = L+1; l>1; l--){
+                for (i = 0; i < d[l - 1]+1; i++){
+                    sum_result = 0.0;
+                    for (j = 1; j< d[l]+1; j++){
+                        sum_result += W[l][i][j]* deltas[l][j];
+                    }
+                    deltas[l-1][i] = (1 - X[l-1][i]* X[l-1][i]) * sum_result;
+                }
+            }
+            for (l = 1; l < L+1; l++){
+                for (i = 0; d[l-1]+1; i++){
+                    for (j = 1; d[l]+1; j++){
+                        W[l][i][j] += -alpha * X[l-1][i]* deltas[l][j];
+                    }
+                }
+            }
+        }
+    }
+     */
 }
 
 MLP *init_MLP(int nlp[], int d_size) {
     int *d = nlp;
     vector<float> W1;
-    vector < vector < vector < float>>> W;
-    vector <vector<float>> X;
-    vector <vector<float>> deltas;
+    vector<vector<vector<float>>> W;
+    vector<vector<float>> X;
+    vector<vector<float>> deltas;
 
     for (auto l = 0; l < d_size; l++) {
         W.push_back(vector < vector < float >> ());//push_back est égale a un resize +1 en mieux
@@ -80,9 +138,9 @@ MLP *init_MLP(int nlp[], int d_size) {
 }
 
 float randomDistribution(float start, float end) {
-    std::random_device rd;
-    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-    std::uniform_real_distribution<> dis(start, end);
+    random_device rd;
+    mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    uniform_real_distribution<> dis(start, end);
     return dis(gen);
 }
 /*
