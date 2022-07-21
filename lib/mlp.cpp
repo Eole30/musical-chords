@@ -134,6 +134,10 @@ float randomDistribution(float start, float end) {
     return dis(gen);
 }
 
+void train_classification_stochastic_backprop_mlp_model (MLP model, vector<float>flattened_dataset_inputs, vector<float>flattened_expected_outputs, float alpha = 0.01, int iterations_count = 1000){
+    model.train_stochastic_gradient_backpropagation(flattened_dataset_inputs, flattened_expected_outputs, true, alpha, iterations_count);
+}
+
 float predict_mlp_model_classification(MLP mlp, vector<float>sample_inputs){
     mlp.forward_pass(sample_inputs, true);
     return mlp.X[mlp.d_size - 1][1];
