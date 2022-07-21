@@ -10,7 +10,8 @@
 #include <Eigen/Eigen>
 #include <vector>
 float randomDistribution(float, float);
-MLP* init_MLP(int, int*);
+class MLP;
+class MLP* init_MLP(int, int*);
 void forward_pass(std::vector<float>, bool, MLP*);
 void train_stochastic_gradient_backpropagation(std::vector<float>, std::vector<float>, bool, float, int);
 void train_classification_stochastic_backprop_mlp_model (MLP*, std::vector<float>, std::vector<float>, float, int);

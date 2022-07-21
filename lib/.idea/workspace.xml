@@ -12,8 +12,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7d8449b2-2c5c-40e6-b6cd-d51bd40876bb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.so" beforeDir="false" afterPath="$PROJECT_DIR$/library.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear_model.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linear_model.h" beforeDir="false" afterPath="$PROJECT_DIR$/linear_model.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mlp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mlp.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mlp.h" beforeDir="false" afterPath="$PROJECT_DIR$/mlp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/[Notebook] Cas de Tests pour le rendu 2.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +52,9 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -65,7 +69,9 @@
       <workItem from="1657963678693" duration="1561000" />
       <workItem from="1657984518192" duration="801000" />
       <workItem from="1658069044798" duration="814000" />
-      <workItem from="1658069868250" duration="3593000" />
+      <workItem from="1658069868250" duration="5148000" />
+      <workItem from="1658332200688" duration="3000" />
+      <workItem from="1658332384459" duration="4091000" />
     </task>
     <servers />
   </component>

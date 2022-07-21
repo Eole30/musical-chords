@@ -23,28 +23,28 @@ public:
     vector<vector<float>> X;
     vector<vector<float>> deltas;
 public:
-    MLP(int* a,int a_size;vector<vector<vector<float>>> B,vector<vector<float>> C,vector<vector<float>> alphas){
+    MLP(int* a,int a_size, vector<vector<vector<float>>> B,vector<vector<float>> C,vector<vector<float>> alphas){
         d = a;
         d_size=a_size;
         W = B;
         X = C;
-        deltats = alphas;
+        deltas = alphas;
     }
 
-    void forward_pass(vector<float> sample_inputs, bool is_classification, MLP *model) {
+    void forward_pass(vector<float> sample_inputs, bool is_classification) {
 
-        for (auto j = 1; j < model->d[0] + 1; ++j) {
-            model->X[0][j] = sample_inputs[j - 1];
+        for (auto j = 1; j < d[0] + 1; ++j) {
+            X[0][j] = sample_inputs[j - 1];
 
-            for (auto l = 0; l <= model->d_size; l++) {
-                for (auto j = 0; j < model->d[l] + 1; ++j) {
+            for (auto l = 0; l <= d_size; l++) {
+                for (auto j = 0; j < d[l] + 1; ++j) {
                     float sum_result = 0.0;
-                    for (auto i = 0; i < model->d[l - 1] + 1; i++) {
-                        sum_result += model->W[l][i][j] * model->X[l - 1][i];
+                    for (auto i = 0; i < d[l - 1] + 1; i++) {
+                        sum_result += W[l][i][j] * X[l - 1][i];
                     }
-                    model->X[l][j] = sum_result;
-                    if (l < model->d_size - 1 || l < is_classification) {
-                        model->X[l][j] = tanh(model->X[l][j]);
+                    X[l][j] = sum_result;
+                    if (l < d_size - 1 || l < is_classification) {
+                        X[l][j] = tanh(X[l][j]);
                     }
                 }
             }
@@ -94,20 +94,17 @@ public:
         }
     }
      */
-}
+};
 
-MLP *init_MLP(int nlp[], int d_size) {
-    int *d = nlp;
+class MLP init_MLP(int mlp[], int d_size) {
+    int *d = mlp;
     vector<float> W1;
     vector<vector<vector<float>>> W;
     vector<vector<float>> X;
     vector<vector<float>> deltas;
 
-    for (auto l = 0; l < d_size; l++) {
+    for (auto l = 1; l < d_size; l++) {
         W.push_back(vector < vector < float >> ());//push_back est égale a un resize +1 en mieux
-        if (l == 0) {
-            continue;
-        }
         for (auto i = 0; i < d[l - 1] + 1; ++i) {
             W[l].push_back(vector<float>());
             for (auto j = 0; j < d[l] + 1; ++j) {
@@ -129,11 +126,12 @@ MLP *init_MLP(int nlp[], int d_size) {
         }
     }
 
-    auto model = new MLP(); //d, d_size, W, X, deltas
-    model->d = d;
-    model->d_size = d_size;
-    model->W = W;
-    model->deltas = deltas;
+    MLP model(d, d_size, W, X, deltas); //d, d_size, W, X, deltas
+//    model.d = d;
+//    model.d_size = d_size;
+//    model.W = W;
+//    model.X = X;
+//    model.deltas = deltas;
     return model;
 }
 
@@ -148,16 +146,16 @@ void train_regression_stochastic_backprop_mlp_model (MLP* model, vector<float>fl
     model->train_stochastic_gradient_backpropagation(flattened_dataset_inputs, flattened_expected_outputs, false, alpha, iterations_count);
 }
 */
-float predict_mlp_model_classification(mlp* MLP, vector<float>sample_inputs){
-    MLP->forward_pass(sample_inputs, true);
-    return MLP->X[MLP->dsize-1][1];
+float predict_mlp_model_classification(MLP mlp, vector<float>sample_inputs){
+    mlp.forward_pass(sample_inputs, true);
+    return mlp.X[mlp.d_size - 1][1];
 }
 
-float predict_mlp_model_regression(mlp* MLP, vector<float>sample_inputs){
-    MLP->forward_pass(sample_inputs, false);
-    return MLP->X[MLP->dsize-1][1];
+float predict_mlp_model_regression(MLP mlp, vector<float>sample_inputs){
+    mlp.forward_pass(sample_inputs, false);
+    return mlp.X[mlp.d_size - 1][1];
 }
 
-void destroy_model(MLP *model) {
+void destroy_model(MLP mlp) {
 
 }

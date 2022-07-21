@@ -6,31 +6,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <Eigen>
+#include <Eigen/Eigen>
 
 /* Elisabeth
  * g++ -fPIC linear_model.cpp -shared -o library.so
  */
+using namespace std;
+using namespace Eigen;
+
 
 extern "C"
-double get_random_once() {
+float get_random_once() {
     srand(time(NULL)); //seed, call only once
-    return ((double) rand() / RAND_MAX) * 2.0 - 1.0; //between -1.0 and 1.0
+    return ((float) rand() / RAND_MAX) * 2.0 - 1.0; //between -1.0 and 1.0
 }
 
 extern "C"
-double *create_linear_model(int input_dim) {
-    double *weights;
-    weights = new double[input_dim + 1];
+float *create_linear_model(int input_dim) {
+    float *weights;
+    weights = new float[input_dim + 1];
     srand(time(NULL)); //seed
     for (int i = 0; i < (input_dim + 1); i++) {
-        weights[i] = ((double) rand() / RAND_MAX) * 2.0 - 1.0;
+        weights[i] = ((float) rand() / RAND_MAX) * 2.0 - 1.0;
     }
     return weights;
 }
 
 extern "C"
-double* train_regression_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs, int expected_size){
+float* train_regression_model(float *model, int model_size, float *dataset_inputs, int dataset_size, float *dataset_expected_outputs, int expected_size){
     int input_size = model_size - 1;
     int output_size = expected_size;
 
@@ -48,18 +51,18 @@ double* train_regression_model(double *model, int model_size, double *dataset_in
 }
 
 extern "C"
-double *train_rosenblatt_linear_model(double *model, int model_size, double *dataset_inputs, int dataset_size, double *dataset_expected_outputs,
+float *train_rosenblatt_linear_model(float *model, int model_size, float *dataset_inputs, int dataset_size, float *dataset_expected_outputs,
                                       int iterations_count, float alpha) {
     int input_size = model_size - 1;
     int sample_count = dataset_size / input_size;
-    double *Xk;
-    double yk, gXk;
+    float *Xk;
+    float yk, gXk;
     int temp;
 
     srand(time(NULL));
     for (int i = 0; i < iterations_count; i++) {
         int k = rand() % sample_count;
-        Xk = new double [input_size];
+        Xk = new float [input_size];
         temp = 0;
         for (int j = k * input_size; j < (k + 1) * input_size; ++j) {
             Xk[temp] = dataset_inputs[j];
@@ -77,17 +80,17 @@ double *train_rosenblatt_linear_model(double *model, int model_size, double *dat
 }
 
 extern "C"
-double predict_linear_model_regression(double *model, int model_size, double *inputs) {
-    double sum_rslt = model[0];
+float predict_linear_model_regression(float *model, int model_size, float *inputs) {
+    float sum_rslt = model[0];
     for (int i = 1; i < model_size; ++i) {
         sum_rslt += model[i] * inputs[i - 1];
     }
     return sum_rslt;
 }
 extern "C"
-short predict_linear_classification(double *model, int model_size, double *inputs) {
-    double pred = predict_linear_model_regression(model, model_size, inputs);
-    //double rslt;
+short predict_linear_classification(float *model, int model_size, float *inputs) {
+    float pred = predict_linear_model_regression(model, model_size, inputs);
+    //float rslt;
     //if(pred >= 0){return 1.0;}else{return -1.0;}
     return (pred >= 0) ? 1.0 : -1.0;
 }
